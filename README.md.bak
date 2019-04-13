@@ -1,9 +1,9 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/webcp/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
-[![Build Status](https://img.shields.io/travis/webcp/laravel-site-settings/master.svg?style=flat-square)](https://travis-ci.org/vandt147/laravel-site-settings)
-[![Quality Score](https://img.shields.io/scrutinizer/g/webcp/laravel-site-settings.svg?style=flat-square)](https://scrutinizer-ci.com/g/vandt147/laravel-site-settings)
-[![Total Downloads](https://img.shields.io/packagist/dt/webcp/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vandt147/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
+[![Build Status](https://img.shields.io/travis/vandt147/laravel-site-settings/master.svg?style=flat-square)](https://travis-ci.org/vandt147/laravel-site-settings)
+[![Quality Score](https://img.shields.io/scrutinizer/g/vandt147/laravel-site-settings.svg?style=flat-square)](https://scrutinizer-ci.com/g/vandt147/laravel-site-settings)
+[![Total Downloads](https://img.shields.io/packagist/dt/vandt147/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
@@ -54,7 +54,7 @@ If you discover any security related issues, please email vandt147@outlook.com i
 
 ## Credits
 
-- [Dương Thành Văn](https://github.com/r94ever)
+- [Dương Thành Văn](https://github.com/vandt147)
 - [All Contributors](../../contributors)
 
 ## License

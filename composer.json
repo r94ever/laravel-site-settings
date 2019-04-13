@@ -1,24 +1,53 @@
 {
     "name": "webcp/laravel-site-settings",
-    "description": "Create Setting model for Laravel applications.",
-    "type": "library",
+    "description": "Application Settings for Laravel",
+    "keywords": [
+        "webcp",
+        "laravel-site-settings"
+    ],
+    "homepage": "https://github.com/webcp/laravel-site-settings",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
-            "name": "Dương Thành Văn",
-            "email": "vandt147@outlook.com"
+            "name": "WebCp",
+            "email": "vandt147@outlook.com",
+            "role": "Developer"
         }
     ],
-    "version": "1.0.0",
-    "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webcp\\LaravelSiteSettings\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webcp\\LaravelSiteSettings\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsServiceProvider"
             ],
             "aliases": {
-                "Settings": "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsFacade"
+                "LaravelSiteSettings": "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsFacade"
             }
         }
     }

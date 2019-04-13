@@ -1,12 +1,11 @@
-# Very short description of the package
+# Readme
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/webcp/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
 [![Build Status](https://img.shields.io/travis/webcp/laravel-site-settings/master.svg?style=flat-square)](https://travis-ci.org/vandt147/laravel-site-settings)
 [![Quality Score](https://img.shields.io/scrutinizer/g/webcp/laravel-site-settings.svg?style=flat-square)](https://scrutinizer-ci.com/g/vandt147/laravel-site-settings)
 [![Total Downloads](https://img.shields.io/packagist/dt/webcp/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
-
+Application settings for your Laravel site
 ## Installation
 
 You can install the package via composer:
@@ -17,21 +16,30 @@ composer require webcp/laravel-site-settings
 
 ## Usage
 
-You can publish the migration with:
+Add class LaravelSiteSettingsServiceProvider to config/app.php
+
+```php
+Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider::class,
+```
+
+If you want to change to config data, you can publish the config file with:
+
+```php
+php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag=config
+```
+
+Then change the desired name for settings table if you want.
+
+Publishing the migration with:
 
 ``` php
-php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag=migrations
 ```
+
 After the migration has been published, you run this command:
 
 ```php
 php artisan migrate
-```
-
-You can publish the config file with:
-
-```php
-php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag="config"
 ```
 
 ### Testing

@@ -29,6 +29,13 @@ class LaravelSiteSettings extends Model
      */
     protected $fillable = ['name', 'value'];
 
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->table = config('laravel-site-settings.table');
+    }
+
     /**
      * This key will be used to store settings data in cache
      *
@@ -70,7 +77,7 @@ class LaravelSiteSettings extends Model
         else {
             $result = self::where('name', $option_name)->pluck('value', 'name')->first();
 
-            return ! $result ? false : $result;
+            return $result ?: '';
         }
     }
 

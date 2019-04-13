@@ -3,6 +3,7 @@
 namespace Webcp\LaravelSiteSettings;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -85,7 +86,7 @@ class LaravelSiteSettings extends Model
      * Update new setting values to database
      *
      * @param array $data   Array contains key/value pairs
-     * @throws \Exception   SQL error
+     * @throws QueryException  SQL error
      *
      * @return boolean
      */

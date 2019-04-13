@@ -1,0 +1,25 @@
+{
+    "name": "webcp/laravel-site-settings",
+    "description": "Create Setting model for Laravel applications.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dương Thành Văn",
+            "email": "vandt147@outlook.com"
+        }
+    ],
+    "version": "1.0.0",
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsServiceProvider"
+            ],
+            "aliases": {
+                "Settings": "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsFacade"
+            }
+        }
+    }
+}

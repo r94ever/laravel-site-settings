@@ -63,7 +63,7 @@ class LaravelSiteSettings extends Model
      * Get the value of given key in setting data
      *
      * @param string $option_name
-     * @return mixed|null
+     * @return string|null
      */
     public static function get(string $option_name)
     {
@@ -75,11 +75,7 @@ class LaravelSiteSettings extends Model
         }
 
         // In case unavailable in cache, get from database
-        else {
-            $result = self::where('name', $option_name)->pluck('value', 'name')->first();
-
-            return $result ?: '';
-        }
+        return self::where('name', $option_name)->pluck('value', 'name')->first();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Webcp\LaravelSiteSettings;
 
 use Illuminate\Support\ServiceProvider;
+use Webcp\LaravelSiteSettings\Commands\CreateOption;
 
 class LaravelSiteSettingsServiceProvider extends ServiceProvider
 {
@@ -45,7 +46,9 @@ class LaravelSiteSettingsServiceProvider extends ServiceProvider
             ], 'lang');*/
 
             // Registering package commands.
-            // $this->commands([]);
+            $this->commands([
+                CreateOption::class
+            ]);
         }
     }
 

@@ -14,7 +14,7 @@ composer require webcp/laravel-site-settings
 
 ### Publish config & migration files
 
-Add class LaravelSiteSettingsServiceProvider to config/app.php
+**For Laravel 5.4 or below**: Add class LaravelSiteSettingsServiceProvider to config/app.php
 
 ```php
 Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider::class,

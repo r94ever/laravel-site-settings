@@ -7,7 +7,10 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Collection;
 
-class LaravelSiteSettings extends Model
+/**
+ * @method static where(string $string, string $option_name)
+ */
+class Setting extends Model
 {
     /**
      * The cache key name which hold settings data
@@ -28,8 +31,16 @@ class LaravelSiteSettings extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'value'];
+    protected $fillable = [
+        'name', 'value'
+    ];
 
+    /**
+     * Create a new Eloquent model instance.
+     *
+     * @param  array  $attributes
+     * @return void
+     */
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -63,7 +74,8 @@ class LaravelSiteSettings extends Model
      * Get the value of given key in setting data
      *
      * @param string $option_name
-     * @return string|null
+     * @return mixed
+     * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     public static function get(string $option_name)
     {

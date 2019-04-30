@@ -50,7 +50,7 @@
                 "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsServiceProvider"
             ],
             "aliases": {
-                "LaravelSiteSettings": "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsFacade"
+                "Setting": "Webcp\\LaravelSiteSettings\\LaravelSiteSettingsFacade"
             }
         }
     }

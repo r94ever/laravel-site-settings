@@ -1,22 +1,23 @@
 <?php
 
-use \Webcp\LaravelSiteSettings\LaravelSiteSettings;
+use Webcp\LaravelSiteSettings\Setting;
 
 if (! function_exists('get_option'))
 {
     /**
-     * Get value of option name
+     * Get option's value
      *
-     * @param  string $option_name
+     * @param string $option_name
      * @return mixed
+     * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     function get_option(string $option_name)
     {
-        return LaravelSiteSettings::get($option_name);
+        return Setting::get($option_name);
     }
 }
 
-if (! function_exists('update_settings'))
+if (! function_exists('update_option'))
 {
     /**
      * Update Settings
@@ -27,8 +28,8 @@ if (! function_exists('update_settings'))
      * @return bool
      * @throws Exception
      */
-    function update_settings(array $data)
+    function update_option(array $data)
     {
-        return LaravelSiteSettings::updateSettings($data);
+        return Setting::updateSettings($data);
     }
 }

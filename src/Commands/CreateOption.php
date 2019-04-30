@@ -12,9 +12,7 @@ class CreateOption extends Command
      *
      * @var string
      */
-    protected $signature = 'option:create-option
-                            {name: The name of option}
-                            {value: The value of option}';
+    protected $signature = 'option:create-option {name: The name of option} {value: The value of option}';
 
     /**
      * The console command description.
@@ -22,6 +20,16 @@ class CreateOption extends Command
      * @var string
      */
     protected $description = 'Create site option';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.

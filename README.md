@@ -1,12 +1,10 @@
-# Readme
+# Laravel Site Settings
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/webcp/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
-[![Build Status](https://img.shields.io/travis/webcp/laravel-site-settings/master.svg?style=flat-square)](https://travis-ci.org/vandt147/laravel-site-settings)
-[![Quality Score](https://img.shields.io/scrutinizer/g/webcp/laravel-site-settings.svg?style=flat-square)](https://scrutinizer-ci.com/g/vandt147/laravel-site-settings)
-[![Total Downloads](https://img.shields.io/packagist/dt/webcp/laravel-site-settings.svg?style=flat-square)](https://packagist.org/packages/vandt147/laravel-site-settings)
 
-Application settings for your Laravel site
 ## Installation
+
+### Download
 
 You can install the package via composer:
 
@@ -14,7 +12,7 @@ You can install the package via composer:
 composer require webcp/laravel-site-settings
 ```
 
-## Usage
+### Publish config & migration files
 
 Add class LaravelSiteSettingsServiceProvider to config/app.php
 
@@ -25,22 +23,55 @@ Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider::class,
 If you want to change to config data, you can publish the config file with:
 
 ```php
-php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag=config
+php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag="config"
 ```
 
 Then change the desired name for settings table if you want.
 
+```php
+return [
+    'table' => 'settings'
+];
+```
+
 Publishing the migration with:
 
 ``` php
-php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag=migrations
+php artisan vendor:publish --provider="Webcp\LaravelSiteSettings\LaravelSiteSettingsServiceProvider" --tag="migrations"
 ```
 
-After the migration has been published, you run this command:
+After the migration has been published, you run this command to start migration:
 
 ```php
 php artisan migrate
 ```
+
+## Usage
+
+By default, all of your options will be loaded automatically from cache. You can get any option value without touching database
+
+```php
+$value = Setting::get('option_name');
+
+// or
+$value = get_option('option_name');
+``` 
+
+Update setting value. If setting key does not exist, it will be created:
+
+```php
+$options = [
+    'option name' => 'option value',
+    'foo' => 'bar'
+];
+
+Setting::updateOption($options);
+
+// or
+update_option($option);
+```
+
+All settings cache will be forgiven after update.
 
 ### Testing
 

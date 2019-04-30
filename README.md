@@ -48,7 +48,19 @@ php artisan migrate
 
 ## Usage
 
-By default, all of your options will be loaded automatically from cache. You can get any option value without touching database
+Create new option with autoload flag enabled
+
+```bash
+php artisan option:add option_name option_value
+```
+
+Create new option with autoload flag disabled
+
+```bash
+php artisan option:add option_name option_value -M
+```
+
+By default, all of your options with `autoload` flag = 1 will be loaded automatically from cache. You can get any option value without touching database
 
 ```php
 $value = Setting::get('option_name');

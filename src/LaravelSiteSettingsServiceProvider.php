@@ -2,23 +2,21 @@
 
 namespace Webcp\LaravelSiteSettings;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
-use Webcp\LaravelSiteSettings\Commands\CreateOption;
+use Webcp\LaravelSiteSettings\Console\Commands\CreateOption;
 
 class LaravelSiteSettingsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
+     *
+     * @param Cache $cache
+     * @return mixed
      */
-    public function boot()
+    public function boot(Cache $cache)
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-site-settings');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-site-settings');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
 
@@ -30,26 +28,15 @@ class LaravelSiteSettingsServiceProvider extends ServiceProvider
                 __DIR__.'/../database/migrations' => database_path('/migrations'),
             ], 'migrate');
 
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-site-settings'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-site-settings'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-site-settings'),
-            ], 'lang');*/
-
             // Registering package commands.
             $this->commands([
                 CreateOption::class
             ]);
         }
+
+        return Cache::rememberForever(Setting::cacheKey(), function() {
+            return Setting::autoload();
+        });
     }
 
     /**
@@ -62,7 +49,7 @@ class LaravelSiteSettingsServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('laravel-site-settings', function () {
-            return new LaravelSiteSettings;
+            return new Setting;
         });
     }
 }

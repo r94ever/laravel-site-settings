@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-site-settings` will be documented in this file
 
+## 1.0.4 - 
+
+- Add postType scope
+
 ## 1.0.3 - 2019-05-01
 
 - Save all options to cache
